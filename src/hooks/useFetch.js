@@ -4,7 +4,7 @@ import { request } from '../utils/request';
 export function useFetch({
   url,
   method,
-  data,
+  body,
   headers,
   initialData = null,
   deps = [],
@@ -23,7 +23,7 @@ export function useFetch({
       const response = await request({
         url,
         method,
-        data,
+        body,
         headers,
       });
       setLoading(() => {

@@ -1,10 +1,10 @@
 import { Provider } from 'react-redux';
 import Head from 'next/head';
-import { createGlobalStyle } from 'styled-components';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import { useStore } from '../redux/store';
-import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
+  const store = useStore(pageProps.initialReduxState);
   return (
     <>
       <Head>
@@ -15,7 +15,10 @@ function MyApp({ Component, pageProps }) {
         />
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
       </Head>
-      <Component {...pageProps} />
+      <CssBaseline />
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
     </>
   );
 }

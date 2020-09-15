@@ -23,4 +23,13 @@ module.exports = {
 
     return config;
   },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/users',
+        permanent: true,
+      },
+    ];
+  },
 };

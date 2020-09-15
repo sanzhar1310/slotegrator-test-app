@@ -1,6 +1,9 @@
-import LoginPage from '../login';
-
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
+
+const Users = dynamic(() => import('../../features/Users').then((mod) => mod.Users), {
+  ssr: false,
+});
 
 const UsersPage = () => {
   return (
@@ -8,6 +11,7 @@ const UsersPage = () => {
       <Head>
         <title>News</title>
       </Head>
+      <Users />
     </>
   );
 };
